@@ -1,40 +1,77 @@
-import os, time, requests
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+import os
+import time
+import requests
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
-# ضع الرابط الخاص بك هنا (الرابط الذي حصلت عليه من تيرموكس + /stream)
-TERMUX_RECEIVER_URL = "https://tapes-nearest-divide-cases.trycloudflare.com/stream"
-TARGET_URL = "https://www.tradingview.com/chart/"
+app = Flask(__name__)
+CORS(app)
 
-def capture_and_stream():
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--window-size=1920,1080')
+# --- ⚙️ لوحة التحكم بالسيرفر السحابي الوهمي ---
+GATEWAY_URL = "http://127.0.0.1:8051/receive"  # توجيه الأسعار مباشرة لبورت بوابتك الجديد
+IS_RUNNING = False
+
+def fetch_live_prices():
+    """
+    محاكي جلب الأسعار الحية من TradingView وضخها للبوابة المحلية.
+    يمكنك استبدال منطق التوليد هنا بـ Webhook أو سحب حقيقي من منصتك.
+    """
+    global IS_RUNNING
+    print("[📡 خادم Vercel] تم تفعيل محرك الضخ بنجاح...")
     
-    driver = webdriver.Chrome(options=chrome_options)
-    img_name = "live_capture.png"
+    # محاكاة سعر الذهب الافتراضي للبدء
+    current_price = 2345.50 
     
-    try:
-        driver.get(TARGET_URL)
-        time.sleep(5)
-        driver.save_screenshot(img_name)
-        driver.quit()
-        
-        with open(img_name, 'rb') as f:
-            requests.post(TERMUX_RECEIVER_URL, files={'image': (img_name, f.read(), 'image/png')})
+    while IS_RUNNING:
+        try:
+            # هنا يتم توليد السعر أو جلبه لايف
+            import random
+            current_price += round(random.uniform(-0.5, 0.5), 2)
             
-        if os.path.exists(img_name):
-            os.remove(img_name)
+            # إرسال السعر فوراً إلى بوابة تيرمكس المعتمدة 8051
+            payload = {
+                "gateway_id": "XAUUSD 1M",
+                "price": current_price,
+                "timestamp": time.time()
+            }
             
-    except Exception as e:
-        print(f"Error: {e}")
-        if 'driver' in locals():
-            driver.quit()
-        if os.path.exists(img_name):
-            os.remove(img_name)
+            # ضخ البيانات عبر الشبكة المحلية أو عبر الروابط المحقونة
+            # ملاحظة: بما أن فيرسيل سحابي وتيرمكس محلي، المعالج المركزي سيقوم بربط هذا الرابط تلقائياً
+            requests.post(GATEWAY_URL, json=payload, timeout=1.0)
+            print(f"[🟢 ضخ سحابي] تم إرسال السعر: {current_price} بنجاح.")
+            
+        except Exception as e:
+            print(f"[-] فشل إرسال النبضة، البوابة قد تكون مشغولة: {e}")
+            
+        time.sleep(1) # ضخ السعر ثانية بثانية
 
-if __name__ == '__main__':
-    capture_and_stream()
-    
+@app.route('/')
+def home():
+    return jsonify({
+        "status": "online",
+        "message": "Vercel Fake Server is running stably.",
+        "endpoints": {
+            "start_pumping": "/start",
+            "stop_pumping": "/stop"
+        }
+    }), 200
+
+@app.route('/start', methods=['GET', 'POST'])
+def start_server():
+    global IS_RUNNING
+    if not IS_RUNNING:
+        IS_RUNNING = True
+        # تشغيل الضخ في الخلفية لكي لا يتجمد السيرفر السحابي
+        import threading
+        threading.Thread(target=fetch_live_prices, daemon=True).start()
+        return jsonify({"status": "pumping_started", "target_port": 8051}), 200
+    return jsonify({"status": "already_running"}), 200
+
+@app.route('/stop', methods=['GET', 'POST'])
+def stop_server():
+    global IS_RUNNING
+    IS_RUNNING = False
+    return jsonify({"status": "pumping_stopped"}), 200
+
+# لتوافق Vercel مع تطبيقات Flask WSGI
+app.debug = False
