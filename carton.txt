@@ -1,0 +1,1 @@
+data/XAUUSD_1M.txt
