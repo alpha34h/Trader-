@@ -1,1 +1,1 @@
-/data/XAUUSD_1M_delete.txt
+data/XAUUSD_1M_delete.txt
