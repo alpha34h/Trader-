@@ -1,1 +1,1 @@
-data/XAUUSD_1M.txt
+data/XAUUSD_OANDA.txt
