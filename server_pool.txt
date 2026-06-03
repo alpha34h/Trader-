@@ -16,3 +16,4 @@ https://trader-smoky.vercel.app/stream/92b2f59a-b81b-4af1-8d02-82a566a9f1f0|1780
 https://trader-smoky.vercel.app/stream/3df476db-2445-4165-8e93-8543512ecd89|1780462104.0497158
 https://trader-smoky.vercel.app/stream/78b349ae-ce48-4b54-9984-77d68206741f|1780462106.392765
 https://trader-smoky.vercel.app/stream/ccdc067d-b8ec-4ea2-9514-0b66cacc6ffa|1780462110.97633
+https://trader-smoky.vercel.app/stream/29af6c53-5003-40c3-ad41-c3feb36687d5|1780462112.8271048
