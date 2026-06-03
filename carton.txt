@@ -1,1 +1,2 @@
 data/XAUUSD_OANDA.txt
+data/xauusd_5m.txt
