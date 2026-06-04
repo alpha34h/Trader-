@@ -1,4 +1,3 @@
-https://trader-smoky.vercel.app/stream/7875c464-6ade-4e4f-aea0-8bad3ad4c96c|1780580033.8820767
 https://trader-smoky.vercel.app/stream/ae12dde4-3cad-4189-b43d-2772dc7c5f30|1780580040.5171294
 https://trader-smoky.vercel.app/stream/cc734d14-fd25-4a93-affe-4ebd3b8445e7|1780580047.3455565
 https://trader-smoky.vercel.app/stream/77622f01-61c5-4305-9359-3b571bd88003|1780580054.3862553
@@ -7,3 +6,4 @@ https://trader-smoky.vercel.app/stream/34ba711f-4090-4b3d-a161-cd2ba6741d73|1780
 https://trader-smoky.vercel.app/stream/2b104851-9678-445b-8163-808637c5e788|1780580076.6749547
 https://trader-smoky.vercel.app/stream/2c11e372-8e76-4829-9f5b-9be53e8ebe02|1780580083.323672
 https://trader-smoky.vercel.app/stream/c3a8f123-6f17-42dd-8f36-8a3a87da6ec3|1780580089.9172225
+https://trader-smoky.vercel.app/stream/0e3118e2-023a-453b-a266-7d2a80767225|1780580096.817661
