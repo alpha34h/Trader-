@@ -1,1 +1,0 @@
-data/XAUUSD_OANDA.txt
