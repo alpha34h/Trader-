@@ -1,1 +1,1 @@
-xauusd_15m|https://raw.githubusercontent.com/alpha34h/Trader-/main/data/xauusd_15m.txt|1781280622.975468
+xauusd_15m|https://trader-smoky.vercel.app/stream/xauusd_15m/91bfaf267dd446869746f7724c676685|1781291454.2771254
