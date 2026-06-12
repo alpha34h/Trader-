@@ -1,0 +1,3 @@
+# gate=xauusd_15m
+# raw data arrives here, packer seals it, gate downloads it, surgeon deletes it
+[STATUS:READY_xauusd_15m]
