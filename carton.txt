@@ -1,3 +1,4 @@
 data/xauusd_5m.txt
 data/xauusd_1m.txt
 data/xauiq.txt
+data/xauusd_15m.txt
