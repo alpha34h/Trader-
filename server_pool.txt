@@ -1,1 +1,1 @@
-xauusd_15m|https://trader-smoky.vercel.app/stream/xauusd_15m/a5e77c9a803a4dde94bf9f2c8e28c6d9|1781296181.434025
+xauusd_15m|https://trader-smoky.vercel.app/stream/xauusd_15m/39b4f0a3cb5845e49cb24b5bdd6aaafd|1781296486.205331
