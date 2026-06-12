@@ -2,3 +2,4 @@ data/xauusd_5m_delete.txt
 data/xauusd_1m_delete.txt
 data/xauiq_delete.txt
 data/xauusd_15m_delete.txt
+data/xauusd_30m_delete.txt
