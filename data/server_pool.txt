@@ -1,1 +1,2 @@
-xauusd_1m|https://trader-smoky.vercel.app/stream/xauusd_1m/956fedc38f884bdbbbcd12fe378ffa28|1781088004.8287008
+xauusd_15m|https://raw.githubusercontent.com/alpha34h/Trader-/main/data/xauusd_15m.txt|1781378333.3183727
+xauusd_30m|https://raw.githubusercontent.com/alpha34h/Trader-/main/data/xauusd_30m.txt|1781378333.3183727
