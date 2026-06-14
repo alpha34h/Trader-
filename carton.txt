@@ -3,3 +3,4 @@ data/xauusd_1m.txt
 data/xauiq.txt
 data/xauusd_30m.txt
 data/xauusd_15m.txt
+data/EURUSD_15M.txt
