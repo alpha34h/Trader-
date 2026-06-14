@@ -1,2 +1,3 @@
 xauusd_15m|https://trader-smoky.vercel.app/stream/xauusd_15m/db823f9a471a4780bf10fefcff0f6507|1781296671.6810966
 xauusd_15m|https://trader-smoky.vercel.app/stream/xauusd_15m/09d7f838474c41138da753225975b855|1781296969.8802173
+EURUSD_15M|https://trader-smoky.vercel.app/stream/xauusd_15m/09d7f838474c41138da753225975b855|1781296969.8802173
